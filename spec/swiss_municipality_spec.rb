@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'swiss_municipality'
 
@@ -16,7 +18,9 @@ describe SwissMunicipality do
     end
 
     it 'returns an error when both zip code and municipality are given' do
-      expect { SwissMunicipality.canton(municipality: 'Gockhausen', zip_code: 8008, variant: :short) }.to raise_error(ArgumentError)
+      expect do
+        SwissMunicipality.canton(municipality: 'Gockhausen', zip_code: 8008, variant: :short)
+      end.to raise_error(ArgumentError)
     end
 
     it 'returns an error when neither the zip code, nor the municipality is given' do
@@ -30,7 +34,8 @@ describe SwissMunicipality do
 
   describe 'when calling the .all_cantons method' do
     it 'returns all cantons in a short variant' do
-      expect(SwissMunicipality.all_cantons(variant: :short)).to eq(%i[AG AI AR BE BL BS FR GE GL GR JU LU NE NW OW SG SH SO SZ TG TI UR VD VS ZG ZH])
+      expect(SwissMunicipality.all_cantons(variant: :short)).to eq(%i[AG AI AR BE BL BS FR GE GL GR JU LU NE NW OW SG
+                                                                      SH SO SZ TG TI UR VD VS ZG ZH])
     end
 
     it 'returns all cantons in a full variant in the desired language' do
@@ -49,14 +54,14 @@ describe SwissMunicipality do
   describe 'when calling the .all_municipalities method' do
     it 'returns all municipalities' do
       expect(SwissMunicipality.all_municipalities.count).to eq(3993)
-      expect(SwissMunicipality.all_municipalities.include?("Aathal-Seegräben")).to eq(true)
-      expect(SwissMunicipality.all_municipalities.include?("Zwillikon")).to eq(true)
+      expect(SwissMunicipality.all_municipalities.include?('Aathal-Seegräben')).to eq(true)
+      expect(SwissMunicipality.all_municipalities.include?('Zwillikon')).to eq(true)
     end
 
     it 'returns all municipalities of a given canton' do
       expect(SwissMunicipality.all_municipalities(canton: 'SO').count).to eq(139)
-      expect(SwissMunicipality.all_municipalities(canton: 'SO').include?("Grenchen")).to eq(true)
-      expect(SwissMunicipality.all_municipalities(canton: 'SO').include?("Selzach")).to eq(true)
+      expect(SwissMunicipality.all_municipalities(canton: 'SO').include?('Grenchen')).to eq(true)
+      expect(SwissMunicipality.all_municipalities(canton: 'SO').include?('Selzach')).to eq(true)
     end
   end
 
@@ -81,8 +86,10 @@ describe SwissMunicipality do
 
     it 'returns all zip codes of a given canton including their municipality name' do
       expect(SwissMunicipality.all_zip_codes(canton: 'BL', variant: :with_municipality).count).to eq(87)
-      expect(SwissMunicipality.all_zip_codes(canton: 'BL', variant: :with_municipality).include?('2814 Roggenburg')).to eq(true)
-      expect(SwissMunicipality.all_zip_codes(canton: 'BL', variant: :with_municipality).include?('4104 Oberwil BL')).to eq(true)
+      expect(SwissMunicipality.all_zip_codes(canton: 'BL',
+                                             variant: :with_municipality).include?('2814 Roggenburg')).to eq(true)
+      expect(SwissMunicipality.all_zip_codes(canton: 'BL',
+                                             variant: :with_municipality).include?('4104 Oberwil BL')).to eq(true)
     end
   end
 end
