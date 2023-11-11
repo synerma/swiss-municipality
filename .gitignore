@@ -1,0 +1,68 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore uploaded files in dev.
+/storage/*
+!/storage/.keep
+
+/public/assets
+.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+stale_outputs_checked
+.DS_Store
+.idea
+.generators
+
+# Ignore application configuration
+/config/application.yml
+.env*
+!.env*.example
+/out/*
+dump.rdb
+access.iml
+erd.pdf
+
+/.vscode/*
+!/.vscode/settings.json
+
+.brakeman.output
+.sentry-version
+.release-version
+
+.gitpod.seeded
+
+coverage
+
+spec/visual_regression/actual/*
+!spec/visual_regression/actual/.keep
+spec/visual_regression/diff/*
+!spec/visual_regression/diff/.keep
+spec/visual_regression/report.html
+spec/visual_regression/report.json
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+/vendor/bundle
+
+*.gem
