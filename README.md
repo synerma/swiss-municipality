@@ -1,5 +1,7 @@
 # SwissMunicipality
 
+With this gem you can map zip codes to municipalities and cantons and vice versa.
+
 ## Getting started
 
 Install the gem or add it to your Gemfile.
