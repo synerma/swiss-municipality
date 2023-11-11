@@ -1,6 +1,6 @@
 Gem::Specification.new do |specification|
   specification.name = "swiss_municipality"
-  specification.version = "0.1.1"
+  specification.version = "0.1.2"
   specification.authors = ["Denis Müller"]
   specification.email = ["denis@synerma.ch"]
   specification.summary = "A gem to map swiss municipalities to zip codes and cantons."
